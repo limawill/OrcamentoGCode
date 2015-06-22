@@ -7,6 +7,7 @@
 #include <QMessageBox>
 
 
+
 //Função coringa para subistiuir caracter
 void replace_str(std::string& str, const std::string de,const std::string para)
 {
@@ -86,3 +87,30 @@ double Calculos(int quantidade,double preco,double volume,double lucro)
 
 }
 
+void Saida_orcamento (std::string arquivo_usado,std::string material,std::string diametro,int quantidade,double preco,double volume,double lucro,double total)
+{
+
+    std::ofstream myfile ("orcamento.txt");
+    if (myfile.is_open())
+    {
+        myfile << "\t\t ORÇAMENTO\n";
+        myfile << "\n";
+        myfile << "\n";
+        myfile <<"Arquivo  Usado: " << arquivo_usado.c_str()<<std::endl;
+        myfile <<"Material Usado: " << material.c_str()<<std::endl;
+        myfile <<"Diametro Usado: " << diametro.c_str()<<std::endl;
+        myfile <<"Quantidade    : " << quantidade<<std::endl;
+        myfile <<"Preço R$      : " << preco<<std::endl;
+        myfile <<"Volume (cm3)  : " << volume<<std::endl;
+        myfile <<"Fator Lucro   : " << lucro<<std::endl;
+        myfile <<"Total R$      : " << total<<std::endl;
+        myfile.close();
+      }
+
+
+
+
+    std::system("gedit orcamento.txt");
+
+
+}

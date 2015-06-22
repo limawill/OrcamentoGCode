@@ -64,14 +64,7 @@ void MainWindow::on_push_orcamento_clicked()
     total         = Calculos(quantidade,preco,volume,lucro);
 
 
-    std::cout << "Arquivo  Usado: " << arquivo_usado.c_str()<<std::endl<<
-                 "Material Usado: " << material.c_str()<<std::endl<<
-                 "Diametro Usado: " << diametro.c_str()<<std::endl<<
-                 "Quantidade    : " << quantidade<<std::endl<<
-                 "Preço R$      : " << preco<<std::endl<<
-                 "Volume (cm3)  : " << volume<<std::endl<<
-                 "Fator Lucro   : " << lucro<<std::endl<<
-                 "Total R$      : " << total<<std::endl;
+    Saida_orcamento(arquivo_usado,material,diametro,quantidade,preco,volume,lucro,total);
 
 /*
     //chamando a tela do orçamento
