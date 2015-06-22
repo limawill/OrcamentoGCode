@@ -14,9 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    formulas.cpp
+    formulas.cpp \
+    tela_orcamento.cpp
 
 HEADERS  += mainwindow.h \
-    formulas.h
+    formulas.h \
+    tela_orcamento.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    tela_orcamento.ui

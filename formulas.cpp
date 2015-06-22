@@ -7,7 +7,50 @@
 #include <QMessageBox>
 
 
+//Função coringa para subistiuir caracter
+void replace_str(std::string& str, const std::string de,const std::string para)
+{
+
+    int i = 0, loc;
+    if(str.empty())
+    {
+        str = de;
+        return;
+    }
+
+    while(i < str.size()){
+        loc = str.find(de, 0);
+        if(loc >= 0)
+            str.replace(loc, de.length(), para);
+        else
+        return;
+        i++;
+    }
+}
+
+
+
+
 // linha do gcode a ser lida:  ; filament used = 2481.7mm (5.6cm3)
+std::string Limpa_String(std::string caminho)
+{
+    //Removendo parte que pode variar
+    std::string::size_type i = caminho.find("(");
+    //std::cout << i << std::endl;
+
+    //Removendo tudo antes do parenteses
+    caminho.erase (0,i);
+
+    // Substitui as ocorrências
+      replace_str(caminho, "(", "");
+      replace_str(caminho, ")", "");
+      replace_str(caminho, "cm3", "");
+
+   // std::cout << "Dentro da função limpeza: " << caminho.c_str()<<std::endl;
+        return caminho;
+}
+
+
 
 std::string Pega_Filamento(std::string caminho)
 {
@@ -30,8 +73,16 @@ std::string Pega_Filamento(std::string caminho)
        QMessageBox::information(0,"Erro","Não foi possivel abrir o .gcode!!");
        return "error!";
     }
+}
 
+double Calculos(int quantidade,double preco,double volume,double lucro)
+{
 
+    double Custo;
+
+    Custo = ((quantidade*volume*preco)*lucro);
+
+    return Custo;
 
 }
 
